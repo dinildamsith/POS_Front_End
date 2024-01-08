@@ -85,6 +85,45 @@ $("#item_update_btn").on('click', ()=>{
 });
 
 
+//Save Item
+$("#item_delete_btn").on('click', ()=>{
+    var item_Id = $("#item_id_txt").val();
+
+
+    if (validate(item_Id,'Item Id')){
+        let item_detail_object = new ItemModel(item_Id)
+
+        let item_detail_Json = JSON.stringify(item_detail_object);
+
+        const sendAJAX = (itemObjectJson) => {
+            const http = new XMLHttpRequest();
+            http.onreadystatechange = () =>{
+                //Validation
+                if (http.readyState == 4 && http.status == 200) {
+                    alert("Sucess")
+                }else{
+                    alert("Faild")
+                }
+            }
+            http.open("DELETE","http://localhost:8080/pos_back_end_war_exploded/item",true);
+            http.setRequestHeader("Content-Type","application/json");
+            http.send(itemObjectJson)
+        }
+
+        sendAJAX(item_detail_Json)
+
+
+        Swal.fire(
+            'Success!',
+            'Item Delete Successfully!',
+            'success'
+        )
+        $("#item_reset_btn").click();
+    }
+});
+
+
+
 
 
 
