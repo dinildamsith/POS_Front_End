@@ -123,6 +123,31 @@ $("#item_delete_btn").on('click', ()=>{
 });
 
 
+function getAllItems(){
+    fetch('http://localhost:8080/pos_back_end_war_exploded/item')
+        .then(response => response.json())
+        .then(data => {
+            // Call the function to load customer data into the table
+            LoadItemData(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+// Get All Data Set Table
+const LoadItemData = (data) => {
+    $('#item_table').empty(); // Customer Table Clean
+
+    data.forEach(item => {
+
+        var newRow = "<tr><th scope='row'>" + item.item_Id + "</th><td>" + item.item_Name+ "</td><td>" + item.item_Price + "</td><td>" + item.item_Qty + "</td></tr>";
+        $("#item_table").append(newRow);
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    getAllItems();
+});
 
 
 
