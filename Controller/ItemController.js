@@ -122,7 +122,28 @@ $("#item_delete_btn").on('click', ()=>{
     }
 });
 
+$("#item_table").on("click", "tr", function() {
+    $('#item_save_btn').css('display', 'none');
+    $('#item_delete_btn').css('display','block');
+    $('#item_update_btn').css('display','block');
+});
 
+
+//row click and get values text fields
+$("#item_table").on("click","tr",function (){
+    let id = $(this).find("th");
+    let data = $(this).find("td");
+
+    $("#item_id_txt").val(id.eq(0).text());
+    $("#item_name_txt").val(data.eq(0).text());
+    $("#item_price_txt").val(data.eq(1).text());
+    $("#item_qty_txt").val(data.eq(2).text());
+})
+
+
+
+
+//Get All Items
 function getAllItems(){
     fetch('http://localhost:8080/pos_back_end_war_exploded/item')
         .then(response => response.json())
