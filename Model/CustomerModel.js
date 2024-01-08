@@ -7,3 +7,6 @@ export class CustomerModel{
         this.customer_Gender=customer_gender;
     }
 }
+
+export class ItemModel {
+}
