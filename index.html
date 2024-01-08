@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>POS SYSTEM|Ps</title>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="pos system , ps , ">
+    <meta name="description" content="Discover our cutting-edge Point of Sale (POS) system designed to revolutionize
+        the way businesses manage transactions. This advanced POS solution combines user-friendly interfaces with
+        powerful backend capabilities, providing a seamless and efficient sales process. ">
+    <meta name="author" content="Dinil_DasmSitH">
+    <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico">
+
+    <link rel="stylesheet" href="assets/bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/clock.css">
+    <link rel="stylesheet" href="assets/css/tbl.css">
+    <link rel="stylesheet" href="assets/css/css.css">
+    <link rel="stylesheet" href="assets/css/mobilNav.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+
+    
+</head>
+
+<body>
+
+<!--/////////////////// Navigation Bar /////////////////////////////-->
+<header>
+    <nav id="navi">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white" style="z-index: 999999999999999" >
+
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" >
+<!--                       <h1 id="pos">POS</h1>-->
+                    </a>
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" id="home_nav">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="customer_nav" >Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="items_nav" >Items</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="place_order_nav">Place Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="manage_order_nav">Mange Order</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+
+
+        <div id="mobile_navi">
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <li class="nav-item">
+                    <a class="nav-link" id="home_nav_m">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="customer_nav_m" >Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="items_nav_m" >Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="place_order_nav_m">Place Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="manage_order_nav_m">Mange Order</a>
+                </li>
+            </div>
+
+            <div id="main">
+                <span style="font-size:30px;cursor:pointer; color: #00ff00; z-index: 99999999999999;" onclick="openNav()">&#9776; POS</span>
+            </div>
+        </div>
+
+    </nav>
+
+
+</header>
+
+
+<main>
+
+<!--    ////////////////////////// Home ///////////////////////-->
+
+    <section id="home_section">
+
+        <section class="hero">
+            <header id="header">
+                <a id="logo" href="#"></a>
+                <nav>
+                    <a id="menu-icon">&#8801;</a>
+                </nav>
+            </header>
+
+        </section>
+
+
+    </section>
+
+<!--    ///////////////////////// Customer page ///////////////////////////-->
+
+    <section id="customer_section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col col-sm-12 col-lg-5 ">
+                    <form class="row ">
+                        <h1>Customer Manage</h1>
+                        <h1></h1>
+                        <div class="col-5">
+                            <label for="customerId" class="form-label">Customer ID</label>
+                            <input type="number" class="form-control" id="customerId" >
+                        </div>
+                        <div class="col-5">
+                            <label for="customer_name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customer_name" >
+                        </div>
+                        <div class="col-5">
+                            <label for="customer_mail" class="form-label">Mail</label>
+                            <input type="email" class="form-control" id="customer_mail">
+                        </div>
+                        <div class="col-5">
+                            <label for="customer_Address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="customer_Address" >
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <label for="customer_Gender" class="form-label">Gender</label>
+                            <select id="customer_Gender" class="form-select">
+                                <option selected></option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+
+
+                        <div id="customerBtn" >
+                            <div class="container">
+                                <div class="row">
+                                    <br>
+                                </div>
+                                <div class="row" >
+
+
+                                        <button id="custSaveBtn" type="button"  class="btn btn-outline-primary col-11" >Save</button>
+
+                                        <button id="custUpdateBtn" type="button" class="btn btn-outline-success col-5" >Update</button>
+
+                                        <button id="custdeleteBtn" type="button" class="btn btn-outline-danger col-5"  >Delete</button>
+
+                                        <button id="reset_btn" type="reset" class="btn btn-outline-info col-2" style="display: none">Reset</button>
+                                        <h1></h1>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </div>
+
+                <div class="col col-sm-12 col-lg-6 "  >
+                    <br>
+                    <div class="input-group">
+                        <input id="customer_searchTxt" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary" id="customerSearchBtn">search</button>
+                    </div>
+                    <br>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mail</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Gender</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customer_Table">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+<!--    /////////////////////// Item Page //////////////////////-->
+
+    <section id="item_section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col col-sm-12 col-lg-5">
+                    <h1>Item Mange</h1>
+                    <br><h1></h1>
+                    <form class="row g-3">
+
+                        <div class="col-5">
+                            <label for="item_id_txt" class="form-label">Item ID</label>
+                            <input type="number" class="form-control" id="item_id_txt" >
+                        </div>
+                        <div class="col-5">
+                            <label for="item_name_txt" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="item_name_txt" >
+                        </div>
+                        <div class="col-5">
+                            <label for="item_price_txt" class="form-label">Item Price</label>
+                            <input type="number" class="form-control" id="item_price_txt">
+                        </div>
+                        <div class="col-5">
+                            <label for="item_qty_txt" class="form-label">Item Qty</label>
+                            <input type="number" class="form-control" id="item_qty_txt">
+                        </div>
+
+
+
+
+
+                        <div class="container">
+                            <div class="row">
+                                <br>
+                            </div>
+                            <div class="row">
+
+                                    <button id="item_save_btn" type="button" class="btn btn-outline-primary col-5">Save</button>
+
+
+                                    <button id="item_update_btn" type="button" class="btn btn-outline-success col-5">Update</button>
+
+
+                                    <button id="item_delete_btn" type="button" class="btn btn-outline-danger col-5">Delete</button>
+
+
+                                    <button id="item_reset_btn" type="reset" class="btn btn-outline-info col-3" style="display: none">Reset</button>
+                                    <h1></h1>
+                                </div>
+
+                            </div>
+
+
+                    </form>
+                </div>
+
+                <div class="col col-sm-12 col-lg-6">
+                    <br>
+                    <div class="input-group">
+                        <input  id="item_search_Txt" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary" id="item_search_btn">search</button>
+                    </div>
+                    <br>
+                    <table class="table">
+
+                        <thead>
+                        <tr>
+                            <th scope="col">Item Id</th>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Item Price</th>
+                            <th scope="col">Item Qty</th>
+                        </tr>
+                        </thead>
+                        <tbody id="item_table">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!--    //////////////////////////////// Place Order Section ///////////////////////////-->
+
+    <section id="palce_order_section">
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-14 col-lg-12">
+                    <h1>Order Details</h1>
+                    <br>
+                    <div class="col-md-4">
+                        <label for="orderId">Order Id</label>
+                        <h4 id="orderId">001</h4>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="customerOrder_Id" class="form-label">Customer Id</label>
+                        <select id="customerOrder_Id" class="form-select">
+                            <option selected></option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="order_Date" class="form-label">Date</label>
+                        <h5 id="order_Date"></h5>
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-3" id="selctItem">
+                    <h1>Select Item</h1>
+                    <br>
+                    <div class="col-4 col-lg-12">
+                        <label for="item_description_select" class="form-label">Item</label>
+                        <select id="item_description_select" class="form-select">
+                            <option selected></option>
+
+                        </select>
+                    </div>
+                    <div class="col-2 col-lg-4">
+                        <label for="qtyOnHand">Qty On Hand</label>
+                        <input type="text" class="form-control" id="qtyOnHand"  required>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <label for="qty">Qty</label>
+                        <input type="text" class="form-control" id="qty"  required>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-3 col-lg-4">
+                        <label for="unit_price">Unit Price</label>
+                        <input type="text" class="form-control" id="unit_price"  required>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <br><br>
+                    <button id="cart_btn" type="button" class="btn btn-success">Add Cart</button>
+                    <p></p>
+                </div>
+
+                <div class="col col-lg-5" id="cartCol">
+                    <h1>Cart</h1>
+                    <table class="table">
+
+                        <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Qty</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cart_table">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col col-sm-3 col-lg-2 ">
+
+                    <span>Total :</span><span id="order_total">00.00</span><br><br>
+                    <label for="cash">Cash</label>
+                    <input type="text" class="form-control" id="cash"  required>
+                    <label for="balance">Balance</label>
+                    <input type="text" class="form-control" id="balance"  required>
+                    <br>
+                    <button id="place_order_btn" type="button" class="btn btn-success">Place Order</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+<!--    //////////////////////////// Mange Order Section ///////////////////////////////-->
+
+    <section id="manage_order_section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col col-xl-4 col-md-12 col-sm-11" id="orderMangeDiv">
+                    <h1>Order Mange</h1>
+                    <br>
+                    <div class="mb-3 mb-sm-2">
+                        <label for="order_id" class="form-label">Order Id</label>
+                        <select class="form-select" aria-label="Default select example" id="order_id">
+                            <option selected>select the Order</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <label for="customer_id_mangeOrder" class="form-label">Customer ID</label>
+                        <input type="number" class="form-control" id="customer_id_mangeOrder" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <h3 id="date">00/00/0000</h3>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <br>
+                        </div>
+                        <div class="row">
+
+<!--                            <div class="col">-->
+<!--                                <button type="button" class="btn btn-outline-success">Update</button>-->
+<!--                            </div>-->
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-danger" id="oderMangeDeleteBtn">Delete</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col col-xl-7 col-md-12 col-sm-11 col-11">
+                    <br>
+                    <div class="input-group">
+                        <input id="mange_order_search_Txt" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button id="mange_order_search_btn" type="button" class="btn btn-outline-primary">search</button>
+                    </div>
+                    <br><br>
+                    <table class="table" >
+
+                        <thead>
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody id="mange_order_table">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <br>
+<!--            <div class="col">-->
+<!--                <table class="table" >-->
+
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th scope="col">Customer Id</th>-->
+<!--                        <th scope="col">Item Description</th>-->
+<!--                        <th scope="col">Unit Price</th>-->
+<!--                        <th scope="col">Qty</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody id="place_order_table">-->
+
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+        </div>
+
+
+
+
+
+    </section>
+
+
+</main>
+
+
+
+<script src="assets/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/lib/jquery.min.js"></script>
+
+<script type="module" src="Controller/CustomerController.js"></script>
+<script type="module" src="Controller/ItemController.js"></script>
+<script type="module" src="Controller/PlaceOrderController.js"></script>
+<script type="module" src="Controller/OrderMangeController.js"></script>
+<link   type="module" rel="stylesheet" href="Controller/OrderMangeController.js">
+<script src="Controller/mobileNav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+ <!--///////////////////   SPA Apply(Single Page Application) ////////////////-->
+<script>
+    $("#customer_section").css('display', 'none');
+    $("#item_section").css('display', 'none');
+    $("#palce_order_section").css('display', 'none');
+    $("#manage_order_section").css('display', 'none');
+
+
+    $("#customer_nav").on('click', () =>{
+        $("#customer_section").css('display', 'block');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#items_nav").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'block');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#place_order_nav").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'block');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#manage_order_nav").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'block');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#home_nav").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'block')
+    });
+
+
+
+    /////////  Mobile Nav
+
+    $("#customer_nav_m").on('click', () =>{
+        $("#customer_section").css('display', 'block');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#items_nav_m").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'block');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#place_order_nav_m").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'block');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#manage_order_nav_m").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'block');
+        $("#home_section").css('display', 'none')
+    });
+
+    $("#home_nav_m").on('click', () =>{
+        $("#customer_section").css('display', 'none');
+        $("#item_section").css('display', 'none');
+        $("#palce_order_section").css('display', 'none');
+        $("#manage_order_section").css('display', 'none');
+        $("#home_section").css('display', 'block')
+    });
+
+</script>
+
+
+<style>
+    @media (max-width: 992px) {
+        #mobile_navi{
+            display: block;
+        }
+    }
+
+</style>
+
+
+</body>
+</html>

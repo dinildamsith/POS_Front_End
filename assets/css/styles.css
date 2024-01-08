@@ -1,0 +1,220 @@
+body{
+    background-color: white;
+    font-family: 'Candal', sans-serif;
+    overflow-x: hidden;
+}
+section{
+    width: 100%;
+    height: 100vh;
+}
+.col{
+    background-color:#E4F1FF;
+    margin: 20px;
+    margin-top: 22px;
+    border-radius: 22px;
+
+
+}
+#selctItem>div {
+    display: inline-block;
+}
+#custUpdateBtn,#custdeleteBtn,#item_delete_btn,#item_update_btn{
+    display: none;
+}
+/* Common button styles */
+.btn {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Primary button style */
+.btn-outline-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+/* Success button style */
+.btn-outline-success {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid #28a745;
+}
+
+/* Danger button style */
+.btn-outline-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+/* Info button style */
+.btn-outline-info {
+    background-color: #17a2b8;
+    color: #fff;
+    border: 1px solid #17a2b8;
+}
+
+/* Style for Reset button */
+#item_reset_btn {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+    display: none;
+}
+
+/* Hover effect for all buttons */
+.btn:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+
+
+div#navbarSupportedContent {
+    background-color: transparent;
+}
+
+.hero{
+
+}
+.btn {
+    border-width: 2px;
+    margin-left: 22px;
+
+}
+/* Style for the input group container */
+.input-group {
+    display: flex;
+    max-width: 300px; /* Adjust the width as needed */
+    margin: 0 auto;
+}
+
+/* Style for the search input */
+#customer_searchTxt,#item_search_Txt,#mange_order_search_Txt {
+    margin: -17px;
+    flex: 1;
+    border: 2px solid #3498db; /* Change the border color as desired */
+    border-radius: 5px; /* Adjust the border radius for rounded corners */
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style for the search button */
+#customerSearchBtn,#item_search_btn,#mange_order_search_btn {
+    margin: -17px;
+    background-color: #3498db; /* Change the button background color */
+    border: none;
+    border-radius: 5px; /* Adjust the border radius to match the input */
+    color: #ffffff; /* Text color */
+    padding: 10px 20px; /* Adjust padding for button size */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect for the button */
+#customerSearchBtn:hover {
+    background-color: #2581c2; /* Change the button background color on hover */
+}
+
+
+
+
+#home_section{
+    position: relative;
+    top: 133px;
+
+}
+
+
+
+
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    text-decoration: none;
+    color: white;
+
+    font-weight: bold;
+}
+
+
+
+
+
+.hero {
+    top: -271px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 113vh;
+    padding: 1em;
+    box-sizing: border-box;
+    color: white;
+    background: url(https://img.freepik.com/free-photo/freshness-organic-vegetables-healthy-eating-vegetarian-food-variation-generated-by-artificial-intelligence_25030-60654.jpg?t=st=1698265656~exp=1698269256~hmac=18fd712c2980285ed179d70d83de7e256bfb84e03a4111fea81318c47dfca42d&w=1060) center center no-repeat;
+    background-size: cover;
+    animation: imageChange 15s infinite; /* 5s per image with 3 images */
+}
+
+@keyframes imageChange {
+    0%, 100% {
+        background-image: url(https://img.freepik.com/free-photo/freshness-organic-vegetables-healthy-eating-vegetarian-food-variation-generated-by-artificial-intelligence_25030-60654.jpg?t=st=1698265656~exp=1698269256~hmac=18fd712c2980285ed179d70d83de7e256bfb84e03a4111fea81318c47dfca42d&w=1060);
+    }
+    33.33% {
+        background-image: url(https://img.freepik.com/free-photo/fresh-autumn-veggies-wooden-table-healthy-meal-generative-ai_188544-8677.jpg?t=st=1698265312~exp=1698268912~hmac=ec926da5e104880b22faff960c126289088b5f297dae37d6668d6c08a57b673e&w=1060);
+    }
+    66.66% {
+        /*background-image: url(https://img.freepik.com/free-photo/painting-green-vegetable-red-tomato_1340-25549.jpg?t=st=1698266285~exp=1698269885~hmac=90d35345db116272749a46cf643f96b202d8573cef8d5baa5e852211c653c694&w=1060);*/
+    }
+}
+
+
+
+#mobile_navi {
+    position: relative;
+    left: -5px;
+    top: -34px;
+    z-index: 9999999999999999;
+    display: none;
+}
+
+
+
+@media only screen and (min-width: 32em) { .hero-title { font-size: 16vh; } }
+
+.hero-footer {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+/*.button {*/
+/*    padding: .5em .67em;*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    border: .1em solid white;*/
+
+/*}*/
+
+.button-primary {
+    color: black;
+    background-color: white;
+}
+
+
+
+article {
+    max-width: 36em;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+
+

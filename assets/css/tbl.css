@@ -1,0 +1,40 @@
+/* Change the font size for the whole table */
+table {
+    font-size: 10px; /* You can adjust the font size as needed */
+}
+
+/* Change the font size for table headers (th elements) */
+th {
+    font-size: 12px; /* You can adjust the font size for headers */
+}
+
+/* Change the font size for table data cells (td elements) */
+td {
+    font-size: 13px; /* You can adjust the font size for data cells */
+}
+/* Apply styles to the entire table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Style table header (th elements) */
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+/* Style table data cells (td elements) */
+.table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Style alternating rows for better readability */
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
