@@ -46,32 +46,32 @@ const setItemIdOptionIds = (data) => {
 
 
 
-//  Select  Item After Values set in Text Fields
-$("#item_description_select").change(function() {
+// Select Item After Values set in Text Fields
+$("#item_description_select").change(function () {
     var item_description = $("#item_description_select").val();
+
 
     fetch('http://localhost:8080/pos_back_end_war_exploded/item')
         .then(response => response.json())
         .then(data => {
-            data.forEach(item => {
+            let foundMatch = false;
 
-                if (item_description === item.item_Name){
+            data.forEach(item => {
+                if (item_description === item.item_Name) {
                     $("#qtyOnHand").val(item.item_Qty);
                     $("#unit_price").val(item.item_Price);
-                }else{
-                    $("#qtyOnHand").val("");
-                    $("#unit_price").val("");
+                    foundMatch = true;
                 }
-
-
             });
 
+            // If no match is found, clear the text fields
+            if (!foundMatch) {
+                $("#qtyOnHand").val("");
+                $("#unit_price").val("");
+            }
         })
         .catch(error => console.error('Error fetching data:', error));
-
-
 });
-
 
 
 
