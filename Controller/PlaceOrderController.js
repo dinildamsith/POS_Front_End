@@ -123,24 +123,6 @@ $("#place_order_btn").on('click', () => {
 
 
 
-//  Item Select After Values set in Text Fields
-
-// $("#item_description_select").change(function() {
-//     var item_description = $("#item_description_select").val();
-//
-//     let find_item = item_db.findIndex(item => item.item_Description === item_description);
-//
-//     if (find_item !== -1) {
-//         $("#qtyOnHand").val(item_db[find_item].item_Qty);
-//         $("#unit_price").val(item_db[find_item].item_UnitPrice);
-//     } else {
-//         // Handle the case where the item is not found
-//         // For example, clear the input fields or display an error message.
-//         $("#qtyOnHand").val("");
-//         $("#unit_price").val("");
-//     }
-// });
-
 
 // Current Date Set
 

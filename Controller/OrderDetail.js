@@ -10,18 +10,6 @@ function getCustomerIds(){
 }
 
 
-function getItemIds(){
-    fetch('http://localhost:8080/pos_back_end_war_exploded/order')
-        .then(response => response.json())
-        .then(ItemIds => {
-            console.log(ItemIds)
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
-
-
-
-
 function customerIdsOptionSetIds(customerIds){
     // place order form customer Id option set ids with customers
     var select_element = document.getElementById("customerOrder_Id");
@@ -32,7 +20,6 @@ function customerIdsOptionSetIds(customerIds){
         select_element.appendChild(option)
     }
 }
-
 
 //Get All Items After call SetItemOptionSetIds Function
 function getAllItems(){
@@ -46,13 +33,12 @@ function getAllItems(){
         .catch(error => console.error('Error fetching data:', error));
 }
 
-
 // Get All Data Set Table
 const setItemIdOptionIds = (data) => {
     data.forEach(item => {
         var select_element = document.getElementById("item_description_select")
         var option = document.createElement("option");
-        option.text =  item.item_Id; // Get All Item Details Item Ids Only Set Option
+        option.text =  item.item_Name; // Get All Item Details Item Ids Only Set Option
         select_element.appendChild(option)
 
     });
@@ -60,10 +46,37 @@ const setItemIdOptionIds = (data) => {
 
 
 
+//  Select  Item After Values set in Text Fields
+$("#item_description_select").change(function() {
+    var item_description = $("#item_description_select").val();
+
+    fetch('http://localhost:8080/pos_back_end_war_exploded/item')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+
+                if (item_description === item.item_Name){
+                    $("#qtyOnHand").val(item.item_Qty);
+                    $("#unit_price").val(item.item_Price);
+                }else{
+                    $("#qtyOnHand").val("");
+                    $("#unit_price").val("");
+                }
+
+
+            });
+
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+
+});
+
 
 
 
 document.addEventListener('DOMContentLoaded', function() {
    getCustomerIds();
-getAllItems();
+    getAllItems();
+
 });
