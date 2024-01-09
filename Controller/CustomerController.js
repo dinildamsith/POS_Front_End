@@ -1,5 +1,6 @@
 import {CustomerModel} from "../Model/CustomerModel.js";
 
+
 // Save Customer
 $("#custSaveBtn").on('click', () => {
     var customerId = $("#customerId").val();
@@ -130,6 +131,8 @@ function customerDataGet() {
         .then(data => {
             // Call the function to load customer data into the table
             LoadCustomerData(data);
+
+
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -139,6 +142,7 @@ const LoadCustomerData = (data) => {
     $('#customer_Table').empty(); // Customer Table Clean
 
     data.forEach(customer => {
+
 
         var newRow = "<tr><th scope='row'>" + customer.customer_Id + "</th><td>" + customer.customer_Name + "</td><td>" + customer.customer_Mail + "</td><td>" + customer.customer_Address + "</td><td>" + customer.customer_Gender + "</td></tr>";
         $("#customer_Table").append(newRow);
@@ -193,3 +197,6 @@ $("#custdeleteBtn").on("click", function() {
     $('#custdeleteBtn').css('display', 'none');
     $('#custUpdateBtn').css('display', 'none');
 });
+
+
+

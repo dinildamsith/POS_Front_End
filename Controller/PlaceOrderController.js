@@ -88,7 +88,7 @@ $("#place_order_btn").on('click', () => {
 
 
     if (validate(customer_id,'Customer Id')){
-        let orderMange_details = new OrderMangeModel(order_id,customer_id,order_date);
+        let orderMange_details = new OrderDetailsModel(order_id,customer_id,order_date);
 
         mange_order_db.push(orderMange_details);
         LoadMangeOrderData();
@@ -125,21 +125,21 @@ $("#place_order_btn").on('click', () => {
 
 //  Item Select After Values set in Text Fields
 
-$("#item_description_select").change(function() {
-    var item_description = $("#item_description_select").val();
-
-    let find_item = item_db.findIndex(item => item.item_Description === item_description);
-
-    if (find_item !== -1) {
-        $("#qtyOnHand").val(item_db[find_item].item_Qty);
-        $("#unit_price").val(item_db[find_item].item_UnitPrice);
-    } else {
-        // Handle the case where the item is not found
-        // For example, clear the input fields or display an error message.
-        $("#qtyOnHand").val("");
-        $("#unit_price").val("");
-    }
-});
+// $("#item_description_select").change(function() {
+//     var item_description = $("#item_description_select").val();
+//
+//     let find_item = item_db.findIndex(item => item.item_Description === item_description);
+//
+//     if (find_item !== -1) {
+//         $("#qtyOnHand").val(item_db[find_item].item_Qty);
+//         $("#unit_price").val(item_db[find_item].item_UnitPrice);
+//     } else {
+//         // Handle the case where the item is not found
+//         // For example, clear the input fields or display an error message.
+//         $("#qtyOnHand").val("");
+//         $("#unit_price").val("");
+//     }
+// });
 
 
 // Current Date Set
