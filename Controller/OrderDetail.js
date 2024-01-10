@@ -1,24 +1,28 @@
-import {OrderDetailsModel} from "../Model/OrderDetailsModel.js";
 
-function getCustomerIds(){
-    fetch('http://localhost:8080/pos_back_end_war_exploded/order')
+//All Customer Data Get
+function customerDataGet() {
+    fetch('http://localhost:8080/pos_back_end_war_exploded/customer')
         .then(response => response.json())
-        .then(customerIds => {
-            customerIdsOptionSetIds(customerIds);
+        .then(data => {
+            // Call the function to load customer data into the table
+            customerIdsOptionSetIds(data)
+
+
         })
         .catch(error => console.error('Error fetching data:', error));
 }
 
+function customerIdsOptionSetIds(data){
 
-function customerIdsOptionSetIds(customerIds){
-    // place order form customer Id option set ids with customers
-    var select_element = document.getElementById("customerOrder_Id");
-
-    for (let i = 0; i < customerIds.length; i++) {
+    data.forEach(customer => {
+        console.log(customer.customer_Id)
+        var select_element = document.getElementById("customerOrder_Id")
         var option = document.createElement("option");
-        option.text = customerIds[i];
+        option.text =  customer.customer_Id; // Get All Item Details Item Ids Only Set Option
         select_element.appendChild(option)
-    }
+
+    });
+
 }
 
 //Get All Items After call SetItemOptionSetIds Function
@@ -33,7 +37,7 @@ function getAllItems(){
         .catch(error => console.error('Error fetching data:', error));
 }
 
-// Get All Data Set Table
+
 const setItemIdOptionIds = (data) => {
     data.forEach(item => {
         var select_element = document.getElementById("item_description_select")
@@ -76,7 +80,7 @@ $("#item_description_select").change(function () {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-   getCustomerIds();
+    customerDataGet();
     getAllItems();
 
 });

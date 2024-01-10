@@ -1,20 +1,9 @@
 
+import {PlaceOrderModel} from "../Model/PlaceOrderModel.js";
 
 
-const LoadMangeOrderData = () =>{
-    $('#mange_order_table').empty();// Customer Table Clean
-    mange_order_db.map((item,index) =>{
-        var newRow = "<tr><th scope='row'>" + item.ordr_Id + "</th><td>" + item.customer_Id + "</td><td>" + item.date + "</td></tr>";
-        $("#mange_order_table").append(newRow)
-    })
-}
-const LoadItemTable = () =>{
-    $('#item_table').empty();
-    item_db.map((item,index) =>{
-        var newRow = "<tr><th scope='row'>" + item.item_Id + "</th><td>" + item.item_Description + "</td><td>" + item.item_UnitPrice + "</td><td>" + item.item_Qty +  "</td></tr>";
-        $("#item_table").append(newRow)
-    })
-}
+
+
 function clearItemSection() {
     $("#item_description_select").val('select the item');
     $("#qtyOnHand").val('');
@@ -31,6 +20,8 @@ var total = 0;
 
 
 
+
+
 $("#cart_btn").on('click', () => {
 
     var item_description = $("#item_description_select").val();
@@ -41,22 +32,12 @@ $("#cart_btn").on('click', () => {
     if (validate(item_description,'Item Description') && validate(unit_price,'Unit Price') && validate(qty,'Qty')){
         var newRow = "<tr><th scope='row'>" + item_description + "</th><td>" + unit_price + "</td><td>" + qty + "</td></tr>";
         $("#cart_table").append(newRow);
-        clearItemSection();
+
     }
 
     // Update the total
     total += unit_price * qty;
     document.getElementById("order_total").textContent = total; // Update the content of the "order_total" element
-
-
-    // Cart Add item After Item Table Qty Update
-    let updateItemQtyIndex = item_db.findIndex(item => item.item_Description === item_description);
-    let qtyOnHand = item_db[updateItemQtyIndex].item_Qty
-    var updatedItemQty = qtyOnHand - qty;
-
-    item_db[updateItemQtyIndex].item_Qty = updatedItemQty;
-    LoadItemTable();
-
 
 
 
@@ -71,7 +52,6 @@ cashInput.addEventListener("input", (event) => {// Add an input event listener t
     let cash = parseFloat($("#cash").val()); // Parse the cash value as a float
 
     let balance = cash - total;
-    console.log(balance);
 
     // Update the content of the "balance" element
     $("#balance").val(balance);
@@ -87,11 +67,36 @@ $("#place_order_btn").on('click', () => {
     var order_date = document.getElementById("order_Date").textContent
 
 
-    if (validate(customer_id,'Customer Id')){
-        let orderMange_details = new OrderDetailsModel(order_id,customer_id,order_date);
 
-        mange_order_db.push(orderMange_details);
-        LoadMangeOrderData();
+    var item_description = $("#item_description_select").val();
+    var unit_price = parseFloat($("#unit_price").val());
+    var qty = parseInt($("#qty").val());
+
+
+    var total  = unit_price*qty;
+
+    if (validate(customer_id,'Customer Id')){
+        let PlaceOrder = new PlaceOrderModel(customer_id,order_id,order_date,item_description,qty,total)
+
+        let orderDetailsJson = JSON.stringify(PlaceOrder);
+
+        const sendAJAX = (OrderDetailsObjectJson) => {
+            const http = new XMLHttpRequest();
+            http.onreadystatechange = () =>{
+                //Validation
+                if (http.readyState == 4 && http.status == 200) {
+                    alert("Sucess")
+                }else{
+                    alert("Faild")
+                }
+            }
+            http.open("POST","http://localhost:8080/pos_back_end_war_exploded/order",true);
+            http.setRequestHeader("Content-Type","application/json");
+            http.send(OrderDetailsObjectJson)
+        }
+
+        sendAJAX(orderDetailsJson)
+
         Swal.fire(
             'Success!',
             'Order Place Successfully!',
@@ -101,23 +106,6 @@ $("#place_order_btn").on('click', () => {
         clear_fields();
     }
 
-
-
-    ///////////////////////// Order Id Generated /////////////////////////////
-
-    // Get the current order ID
-    var currentOrderId = $("#orderId").text();
-
-    // Convert the current order ID to a number
-    var currentOrderNumber = parseInt(currentOrderId, 10);
-
-    // Increment the number
-    var newOrderNumber = currentOrderNumber + 1;
-
-    // Convert it back to a string with leading zeros (e.g., 001)
-    var newOrderId = String(newOrderNumber).padStart(currentOrderId.length, '0');
-
-    $("#orderId").text(newOrderId);
 
 });
 
@@ -157,6 +145,12 @@ function clear_fields() {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+
+
+
+
+});
 
 
 
