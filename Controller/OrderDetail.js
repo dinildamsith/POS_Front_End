@@ -1,5 +1,7 @@
 
 //All Customer Data Get
+import {PlaceOrderModel} from "../Model/PlaceOrderModel.js";
+
 function customerDataGet() {
     fetch('http://localhost:8080/pos_back_end_war_exploded/customer')
         .then(response => response.json())
@@ -15,7 +17,7 @@ function customerDataGet() {
 function customerIdsOptionSetIds(data){
 
     data.forEach(customer => {
-        console.log(customer.customer_Id)
+
         var select_element = document.getElementById("customerOrder_Id")
         var option = document.createElement("option");
         option.text =  customer.customer_Id; // Get All Item Details Item Ids Only Set Option
@@ -79,8 +81,80 @@ $("#item_description_select").change(function () {
 
 
 
+/// Order Details Manage
+
+
+
+
+function allOrdersSetTable(){
+    fetch('http://localhost:8080/pos_back_end_war_exploded/order')
+        .then(response => response.json())
+        .then(data => {
+
+            data.forEach(orderDetails => {
+                    $('#mange_order_table').empty();// Customer Table Clean
+                        var newRow = "<tr><th scope='row'>" + orderDetails.order_Id + "</th><td>" + orderDetails.customer_Id + "</td><td>" + orderDetails.date+ "</td></tr>";
+                        $("#mange_order_table").append(newRow)
+            });
+
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+
+$("#mange_order_table").on("click", "tr", function () {
+    let id = $(this).find("th");
+    let data = $(this).find("td");
+
+    $("#order_id option:selected").text(id.eq(0).text()); // Set the selected option's text
+    $("#customer_id_mangeOrder").val(data.eq(0).text()); // Set the input field's value
+    $("#date").text(data.eq(1).text()); // Set the text content of the h3 element
+});
+
+
+//Order Details Delete
+
+$("#oderMangeDeleteBtn").on('click', () => {
+    let orderId = $("#order_id").val();
+
+    let delete_order_id_Obj = new PlaceOrderModel("", orderId);
+
+    let deleteOrderIdJson = JSON.stringify(delete_order_id_Obj);
+
+    const sendAJAX = (deleteItem) => {
+        const http = new XMLHttpRequest();
+        http.onreadystatechange = () =>{
+            //Validation
+            if (http.readyState == 4 && http.status == 200) {
+                alert("Sucess")
+            }else{
+                alert("Faild")
+            }
+        }
+        http.open("DELETE","http://localhost:8080/pos_back_end_war_exploded/order",true);
+        http.setRequestHeader("Content-Type","application/json");
+        http.send(deleteItem)
+    }
+
+    sendAJAX(deleteOrderIdJson)
+
+    Swal.fire(
+        'Success!',
+        'Order Details Delete Successfully!',
+        'success'
+    )
+    $('#mange_order_table').empty();
+
+});
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     customerDataGet();
     getAllItems();
+    allOrdersSetTable();
 
 });
